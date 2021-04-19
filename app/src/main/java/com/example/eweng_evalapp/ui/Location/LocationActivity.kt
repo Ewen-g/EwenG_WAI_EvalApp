@@ -46,12 +46,13 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    val PERMISSION_REQUEST_LOCATION = 9999
     private lateinit var binding: ActivityLocationBinding // <-- Référence à notre ViewBinding
     private lateinit var maMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    val eseo = LatLng(47.493071780139, -0.5513407472059)
     private val TAG = LocationActivity::class.java.simpleName
+    val eseo = LatLng(47.493071780139, -0.5513407472059)
+    val PERMISSION_REQUEST_LOCATION = 9999
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +66,6 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         supportActionBar?.apply {
             setTitle("Localisation")
             setDisplayHomeAsUpEnabled(true)
-            //setDisplayShowHomeEnabled(true)
         }
 
         // Get the SupportMapFragment and request notification when the map is ready to be used.
@@ -74,6 +74,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
+    //fonction pour changer l'apparence de la carte Google Maps dans l'application
     private fun setMapStyle(map: GoogleMap) {
         val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         when (currentNightMode) {
@@ -172,18 +173,6 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-//    private fun getLocation() {
-//        if (hasPermission()) {
-//            val locationManager =
-//                applicationContext.getSystemService(LOCATION_SERVICE) as LocationManager?
-//            locationManager?.run {
-//                locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER)?.run {
-//                    geoCode(this)
-//                }
-//            }
-//        }
-//    }
-
     private fun requestPermission() {
         if (!hasPermission()) {
             ActivityCompat.requestPermissions(
@@ -211,6 +200,11 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
             val monAddress = LatLng(location.latitude, location.longitude)
             val distance = FloatArray(1)
+            val distanceArrondi = round(distance[0] * 100) / 100
+            val item = HistoriqueItem(results[0].getAddressLine(0),
+                monAddress.latitude.toString() + ";" + monAddress.longitude.toString())
+            val itemInJson: String = Gson().toJson(item)
+
 
             maMap.addMarker(MarkerOptions().title("MyPosition").position(monAddress))
             maMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monAddress, 15f))
@@ -225,20 +219,11 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                 distance
             )
             distance[0] = distance[0] / 1000
-            var distanceArrondi = round(distance[0] * 100) / 100
-
-            var item = HistoriqueItem(
-                results[0].getAddressLine(0),
-                monAddress.latitude.toString() + ";" + monAddress.longitude.toString()
-            )
-            //var item = HistoriqueItem(results[0].getAddressLine(0))
-            val itemInJson: String = Gson().toJson(item)
 
             LocalPreferences.getInstance(this).addToHistory(itemInJson)
 
             binding.TxtLocalisation.text = results[0].getAddressLine(0)
-            binding.txtCoordonnees.text =
-                "Coordonnées : " + monAddress.latitude.toString() + ";" + monAddress.longitude.toString()
+            binding.txtCoordonnees.text = "Coordonnées : " + monAddress.latitude.toString() + " ; " + monAddress.longitude.toString()
             binding.txtDistance.text = "À " + distanceArrondi.toString() + "km de l'ESEO"
 
         }
@@ -249,9 +234,6 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         maMap = p0
         setMapStyle(maMap)
         maMap.addMarker(MarkerOptions().title("ESEO").position(eseo))
-//        maMap.moveCamera(CameraUpdateFactory.newLatLngZoom(eseo,15f))
-//        maMap.moveCamera(CameraUpdateFactory.newLatLngZoom(eseo,15f))
-//        maMap.animateCamera(CameraUpdateFactory.zoomTo(12f),2000,null)
         requestPermission() //a ne pas mettre si je veux cliquer pour lancer recherche position
     }
 

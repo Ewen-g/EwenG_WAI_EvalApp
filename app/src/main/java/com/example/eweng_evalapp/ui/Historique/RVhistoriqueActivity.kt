@@ -70,14 +70,7 @@ class RVhistoriqueActivity : AppCompatActivity() {
                 overridePendingTransition(0, 0);
 
             }
-                
 
-            // Exemple de déclaration dans la datasource (à déclarer dans votre Activity)
-            //SettingsItem(...,...){...},     =    SettingsItem(...,...,{...}),
-
-
-
-            //
             binding.rvLayout.layoutManager = LinearLayoutManager(this)
             binding.rvLayout.adapter = HistoriqueAdapter(listeHistorique)
         }
