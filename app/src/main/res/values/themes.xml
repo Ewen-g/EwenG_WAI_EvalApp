@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.EwenG_EvalApp" parent="Theme.MaterialComponents.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/green_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color_biscuit</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/white_warm</item>
+        <item name="waveBackgroundIMG">@drawable/wave_background</item>
+        <item name="worldIMG">@drawable/world_light</item>
+        <item name="buttonColor">@color/color_biscuit</item>
+
+    </style>
+
+
+    <style name="Theme.EwenG_EvalApp_NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/green_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color_biscuit</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/white_warm</item>
+        <item name="waveBackgroundIMG">@drawable/wave_background</item>
+        <item name="worldIMG">@drawable/world_light</item>
+        <item name="buttonColor">@color/color_biscuit</item>
+        <item name="iconColor">@color/white_warm</item>
+
+    </style>
+</resources>

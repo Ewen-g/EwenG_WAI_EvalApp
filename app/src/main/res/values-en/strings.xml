@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WAI</string>
+    <string name="Titredemande">title request</string>
+    <string name="messagedemande">message request</string>
+    <string name="effacerListe">Clear list</string>
+    <string name="coordonnees">coordinates</string>
+    <string name="chercher">Search</string>
+    <string name="distance">Distance</string>
+    <string name="adresse">address</string>
+    <string name="textview">TextView</string>
+    <string name="localisation">LOCATION</string>
+    <string name="historique">HISTORICAL</string>
+    <string name="where_am_i">WHERE AM I</string>
+    <string name="wai">WAI</string>
+    <string name="where_am_i2">Where Am I</string>
+    <string name="info_createur">GUILLOU Ewen 2021</string>
+    <string name="coordonees">coordinates</string>
+</resources>

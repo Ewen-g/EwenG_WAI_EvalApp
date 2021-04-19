@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="customAttrs">
+        <attr name="waveBackgroundIMG" format="reference" />
+        <attr name="worldIMG" format="reference" />
+        <attr name="buttonColor" format="reference" />
+        <attr name="iconColor" format="reference" />
+        <attr name="mapsColor" format="reference" />
+    </declare-styleable>
+</resources>
