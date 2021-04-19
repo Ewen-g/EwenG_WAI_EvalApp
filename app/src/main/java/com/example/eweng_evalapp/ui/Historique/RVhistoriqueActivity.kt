@@ -1,19 +1,14 @@
 package com.example.eweng_evalapp.ui.Historique
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ewen1.ui.Settings.Adapter.HistoriqueAdapter
 import com.example.ewen1.ui.Settings.Item.HistoriqueItem
-
-import com.example.eweng_evalapp.R
 import com.example.eweng_evalapp.databinding.ActivityRVhistoriqueBinding
 import com.example.eweng_evalapp.ui.LocalPreferences
-import com.example.eweng_evalapp.ui.Location.LocationActivity
 import com.example.eweng_evalapp.ui.Main.MainActivity
 import com.google.gson.Gson
 
@@ -57,12 +52,13 @@ class RVhistoriqueActivity : AppCompatActivity() {
                     listeHistorique.add(monItem)
                 }
             }
-
+            //Si on clique sur le bouton effacer on efface tous les elements presents dans le LocalPreferences
             binding.btEffacer.setOnClickListener {
                 LocalPreferences.getInstance(this).clear()
                 this.recreate();
             }
 
+            //Empeche de réouvrire l'activité historique si elle est vide
             if(LocalPreferences.getInstance(this).getHistory().isNullOrEmpty()){
                 Toast.makeText(this, "L'historique est vide", Toast.LENGTH_SHORT).show()
                 overridePendingTransition(0, 0);

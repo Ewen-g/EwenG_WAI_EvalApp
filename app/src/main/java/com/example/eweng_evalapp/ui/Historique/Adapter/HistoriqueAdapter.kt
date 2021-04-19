@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ewen1.ui.Settings.Item.HistoriqueItem
 import com.example.eweng_evalapp.R
@@ -24,8 +23,7 @@ class HistoriqueAdapter(private val deviceList: ArrayList<HistoriqueItem>) : Rec
             mapIntent.setPackage("com.google.android.apps.maps")
             itemView.findViewById<TextView>(R.id.adresse).text = elements.address
             itemView.findViewById<TextView>(R.id.coordonée).text = "Coordonées :" + elements.coords
-
-            }
+        }
     }
 
     // Retourne une « vue » / « layout » pour chaque élément de la liste
@@ -36,10 +34,10 @@ class HistoriqueAdapter(private val deviceList: ArrayList<HistoriqueItem>) : Rec
         )
     }
 
-
     override fun getItemCount(): Int {
         return deviceList.size
     }
+
     // Connect la vue ET la données
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.showItem(deviceList[position])

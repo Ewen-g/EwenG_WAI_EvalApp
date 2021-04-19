@@ -4,12 +4,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.renderscript.ScriptGroup
 import com.example.eweng_evalapp.ui.Settings.RVparametresActivity
 import com.example.eweng_evalapp.databinding.ActivityMainBinding
 import com.example.eweng_evalapp.ui.Historique.RVhistoriqueActivity
 import com.example.eweng_evalapp.ui.Location.LocationActivity
-import com.example.eweng_evalapp.ui.Splash.SplashActivity
 
 
 class MainActivity : AppCompatActivity() {

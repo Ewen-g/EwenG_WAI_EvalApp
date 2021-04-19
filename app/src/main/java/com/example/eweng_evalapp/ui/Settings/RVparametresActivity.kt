@@ -41,8 +41,7 @@ class RVparametresActivity : AppCompatActivity() {
         }
 
 
-        // Exemple de déclaration dans la datasource (à déclarer dans votre Activity)
-        //SettingsItem(...,...){...},     =    SettingsItem(...,...,{...}),
+        //Declaration de chacun des items qui seront present dans le RV des parametre
         val items = arrayOf(
 
             SettingsItem(
@@ -89,7 +88,6 @@ class RVparametresActivity : AppCompatActivity() {
                         Uri.parse("https://eseo.fr/")
                     )
                 );
-
             },
 
 
@@ -100,14 +98,12 @@ class RVparametresActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_SENDTO)
                 intent.data = Uri.parse("mailto: ewen.guillou@reseau.eseo.fr")
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Demande sur <..sujet..>")
-
                 startActivity(intent)
             }
         )
 
         //
         binding.rvLayout.layoutManager = LinearLayoutManager(this)
-        binding.rvLayout.adapter =
-            ParametresAdapter(items)
+        binding.rvLayout.adapter = ParametresAdapter(items)
     }
 }
